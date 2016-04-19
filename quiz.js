@@ -9,17 +9,17 @@ function paintTree () {
 	var treeHeight = document.getElementById("tree-height").value;
   var leafChar = document.getElementById("leaf-char").value;
 
-  for (var i = 1; i <= treeHeight; i++)
+  for (var i = 1; i <= treeHeight + 1; i++)
   {
     var tier = "";
     for (var j = treeHeight; j > 0 ; j--) {
       tier += " ";
     } 
-    for (var k = (treeHeight - i); k > 0; k++) {
+    for (var k = 1; k < i; k++) {
       tier += leafChar;
     } 
+    console.log(tier);
   }
-  console.log(tier);
 }
 
 
