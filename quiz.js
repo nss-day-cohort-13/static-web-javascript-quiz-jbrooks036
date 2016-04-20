@@ -1,6 +1,7 @@
 // set up the form to accept input
 var btn = document.getElementById("grow-button");
-btn.addEventListener("click", function(){
+btn.addEventListener("click", function(e){
+    e.preventDefault();
     tree(getInputValues());
 });
 
@@ -35,8 +36,9 @@ function tree (obj) {
    
     // now, output the tier
     console.log(tier);
-   
   }
+
+//  setTimeout(function(){ alert("Hello"); }, 3000);
 }
 
 
