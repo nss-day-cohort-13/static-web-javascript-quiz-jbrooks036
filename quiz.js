@@ -2,14 +2,23 @@
 var btn = document.getElementById("grow-button");
 btn.addEventListener("click", function(e){
     e.preventDefault();
-    tree(getInputValues());
+    var obj = getInputValues();
+    if (obj) {
+      tree(obj);
+    }
 });
 
 function getInputValues() {
   var obj = new Object();
   obj.treeHeight = parseInt(document.getElementById("tree-height").value);
   obj.leafChar = document.getElementById("leaf-char").value;
-  
+
+  // check for missing input
+  if (!obj.treeHeight || !obj.leafChar) {
+      alert("both fields must have a value");
+      obj = null;
+  }
+
   return(obj);
 }
 
@@ -38,7 +47,6 @@ function tree (obj) {
     console.log(tier);
   }
 
-//  setTimeout(function(){ alert("Hello"); }, 3000);
 }
 
 
