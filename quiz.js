@@ -1,13 +1,23 @@
+// set up the form to accept input
 var btn = document.getElementById("grow-button");
-
 btn.addEventListener("click", function(){
-    tree();
+    tree(getInputValues());
 });
 
-function tree () {
-	var treeHeight = parseInt(document.getElementById("tree-height").value);
-  var leafChar = document.getElementById("leaf-char").value;
+function getInputValues() {
+  var obj = new Object();
+  obj.treeHeight = parseInt(document.getElementById("tree-height").value);
+  obj.leafChar = document.getElementById("leaf-char").value;
+  
+  return(obj);
+}
 
+
+// output the tree
+function tree (obj) {
+
+  var treeHeight = obj.treeHeight;
+  var leafChar = obj.leafChar;
 
   // cycle through the tree one tier at a time, top to bottom
   for (var i = 1; i < treeHeight + 1; i++)
