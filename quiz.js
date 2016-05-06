@@ -1,17 +1,32 @@
 // set up the form to accept input
 var btn = document.getElementById("grow-button");
 btn.addEventListener("click", function(e){
-    e.preventDefault();
+  e.preventDefault();
+  var obj = getInputValues();
+  if (obj) {
+    tree(obj);      
+  }
+});
+
+var treeHeightInput = document.getElementById("tree-height");
+var leafCharInput = document.getElementById("leaf-char");
+treeHeightInput.addEventListener("keypress", keypress);
+leafCharInput.addEventListener("keypress", keypress);
+
+function keypress(e) {
+  console.log("keycode")
+  if (event.keyCode == 13) {
     var obj = getInputValues();
     if (obj) {
-      tree(obj);
-    }
-});
+      tree(obj); 
+    }     
+  }
+}
 
 function getInputValues() {
   var obj = new Object();
-  obj.treeHeight = parseInt(document.getElementById("tree-height").value);
-  obj.leafChar = document.getElementById("leaf-char").value;
+  obj.treeHeight = parseInt(treeHeightInput.value);
+  obj.leafChar = leafCharInput.value;
 
   // check for missing input
   if (!obj.treeHeight || !obj.leafChar) {
